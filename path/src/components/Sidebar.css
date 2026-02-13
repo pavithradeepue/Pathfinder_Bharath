@@ -1,0 +1,126 @@
+.sidebar {
+  width: 80px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  box-shadow: 2px 0 25px rgba(59, 130, 246, 0.15);
+  z-index: 100;
+}
+
+.logo-section {
+  margin-bottom: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-section svg {
+  transition: transform 0.3s ease;
+}
+
+.logo-section svg circle {
+  fill: rgba(255, 255, 255, 0.8);
+  stroke: #3b82f6;
+}
+
+.logo-section svg path {
+  stroke: #3b82f6;
+}
+
+.logo-section svg:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 164748b;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #3b82f6;
+  transform: translateX(5px);
+}
+
+.nav-item:hover::before {
+  opacity: 1;
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.6), rgba(96, 165, 250, 0.6));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #1e40af;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.nav-item.active::before {
+  opacity: 0;
+}
+
+.sidebar-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    padding: 0 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .logo-section {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .sidebar-footer {
+    border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    padding-top: 0;
+    padding-left: 20px;
+  }
+
+  .nav-item:hover {
+    transform: translateY(-3px);
+  }
+}

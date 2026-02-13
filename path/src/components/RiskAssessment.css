@@ -1,0 +1,217 @@
+.risk-assessment-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+}
+
+.risk-assessment-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.risk-assessment-card:hover::before {
+  opacity: 1;
+}
+
+.risk-assessment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3);
+  border-color: rgba(147, 197, 253, 0.8);
+}
+
+.risk-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e40af;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.risk-badge {
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.risk-badge.low-risk {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: #052e16;
+  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+}
+
+.risk-badge.medium-risk {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #451a03;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+}
+
+.risk-badge.high-risk {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fef2f2;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.calculate-btn,
+.safe-routing-btn {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.calculate-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.calculate-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.calculate-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.safe-routing-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.safe-routing-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.safe-routing-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.risk-info {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .risk-assessment-card {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .risk-title {
+    font-size: 18px;
+  }
+
+  .risk-badge {
+    padding: 16px 32px;
+    font-size: 20px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .calculate-btn,
+  .safe-routing-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .risk-assessment-card {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .risk-title {
+    font-size: 16px;
+  }
+
+  .risk-badge {
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+
+  .calculate-btn,
+  .safe-routing-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .info-text {
+    font-size: 12px;
+  }
+}
